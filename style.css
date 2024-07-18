@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --very-dark-blue: #000518;
+    --dark-blue: #000823;
+    --white: #FFFFFF;
+    --vb-yellow: hsl(52, 100%, 62%);
+    --btn-color: #011C7A;
+    --red-color: #9C0000;
+}
+
+
+body{
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%); */
+    background-color: var(--very-dark-blue);
+    font-family: "Arimo", sans-serif;
+}
+
+.container{
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: var(--wt-color); */
+    background-color: var(--dark-blue);
+    border-radius: 0.75rem;
+    padding: 1.5rem 0.5rem;
+    /* box-shadow: white 0px 2px 4px 0px, white 0px 2px 16px 0px; */
+    border: 2px solid white;
+}
+
+.container-heading{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.container-heading p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.display-container{
+    position: relative;
+    width: 90%;
+    background-color: var(--dark-blue);
+    border-radius: 0.5rem;
+    border: 1px solid white;
+}
+
+.display{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0.6rem 1rem;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    border-radius: 0.5rem;
+}
+
+.display::placeholder{
+    color: var(--white);
+    opacity: 0.3;
+}
+
+.display-container button{
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--dark-blue);
+}
+
+.input-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: rgba(51, 175, 227, 0.444) 0px 2px 4px 0px, rgba(0, 135, 194, 0.604) 0px 2px 16px 0px; */
+    background-color: var(--very-dark-blue);
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    padding: 1.2rem 0.35rem;
+    margin: 1.5rem 0rem;
+    margin-bottom: 0.5rem;
+}
+
+.length-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.length-container p:nth-child(1){
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.length-container p:nth-child(2){
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--vb-yellow);
+}
+
+.checkBoxes{
+    width: 100%;
+    /* text-align: left; */
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction:column;
+    gap: 1rem;
+}
+
+.strength-container{
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.strength-container p{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.indicator{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--wt-color);
+    box-shadow: rgb(0, 255, 0) 0px 0px 12px 1px;
+    transition: all 250ms ease-in-out;
+}
+
+.btn-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    color: var(--white);
+    background-color: var(--btn-color);
+    border-radius: 0.5rem;
+    margin-top: 1.2rem;
+    cursor: pointer;
+    /* transition: all 100ms linear; */
+    text-align: center;
+}
+
+.generate-btn{
+    all: unset;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--btn-color);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-container:hover {
+    /* box-shadow: rgb(255, 255, 255) 0px 0px 12px 1px; */
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: 1px solid white;
+    .generate-btn {
+        background-color: var(--dark-blue);
+        /* transition: all 100ms linear; */
+    }
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+    /* margin: 1rem; */
+}
+
+
+.check input{
+    position: relative;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--dark-blue);
+    cursor: pointer;
+    border-radius: 0.25rem;
+    border: 1px solid white;
+}
+
+.check input:checked {
+    background-color: var(--dark-blue);
+    border: 1px solid white;
+}
+
+.check input:checked::before{
+    content: "✔";
+    position: absolute;
+    font-size:1.05rem;
+    font-weight: 600;
+    left: 50%;
+    top: -3.5px;
+    transform: translateY(0) translateX(-50%);
+    color: var(--white);
+}
+
+.checkBoxes label{
+    color: var(--white);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.cp-btn{
+    position: absolute;
+    font-size: 1.25rem;
+    border-radius: 1.2rem;
+    top: -50px;
+    left: -35px;
+    background-color: var(--white);
+    color: var(--dark-blue);
+    padding: 0.3rem 0.5rem;
+    margin: 1rem;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 250ms ease-in-out;
+}
+
+.cp-btn.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slider{
+    appearance: none;
+    width: 90%;
+    border-radius: 1rem;
+    height: 0.5rem;
+    cursor: pointer;
+    background-color: var(--dark-blue);
+    background-image: linear-gradient(var(--btn-color), var(--btn-color));
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    margin: 1.2rem 0;
+    /* z-index: -1; */
+}
+
+.slider::-webkit-slider-thumb{
+    appearance: none;
+    position: relative;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--vb-yellow);
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    transition: all 100ms ease-in;
+}
+
+/* .slider{
+    appearance: none;
+    width:100%;
+    height: 0.75rem;
+    cursor: pointer;
+    background-color: var(--lt-violet);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
+    background-repeat: no-repeat;
+    border:none;
+    outline:none;
+    z-index:-1;
+}
+
+.slider::-webkit-slider-thumb {
+    position:relative;
+    z-index:1;
+    appearance: none;
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color: var(--vb-yellow);
+    cursor:pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    transition: all 100ms ease-in;
+} */
+
+
+.slider:focus {
+    outline: 3px solid var(--white);
+}
+
+.slider::-webkit-slider-thumb:hover {
+    outline: 2px solid var(--btn-color);
+    background-color: var(--white);
+    box-shadow: 0px 0px 25px 5px rgba(255, 255, 255, 0.8);
+}
+
+
+
+
+/*slider thumb code for mozila firefox browser*/
+/* .slider::-moz-range-thumb {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background: var(--vb-yellow);
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
+  } */
+
+  @media (max-width: 475px) {
+
+    .length-container p:first-of-type {
+        font-size: 1.3rem;
+    }
+
+    .check label {
+        font-size: 0.9rem;
+    }
+
+
+
+  }
+
+
+  @media (max-width: 415px) {
+    
+    .container-heading p{
+        font-size: 1rem;
+    }
+
+    .length-container p:first-of-type {
+        font-size: 1.2rem;
+    }
+
+    .check label {
+        font-size: 0.75rem;
+    }
+
+    .strength-container p {
+        font-size: 1.4rem;
+    }
+  }
