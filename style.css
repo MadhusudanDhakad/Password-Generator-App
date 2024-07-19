@@ -237,7 +237,7 @@ body.light-mode {
 }
 
 .input-container.light-mode .length-container p:nth-child(2) {
-    color: var(--btn-color);
+    color: var(--deepskyblue);
 }
 
 .checkBoxes{
@@ -339,9 +339,17 @@ body.light-mode {
     border: 1px solid white;
 }
 
+.input-container.light-mode .check input {
+    border: 1px solid var(--btn-color);
+}
+
 .check input:checked {
     background-color: var(--dark-blue);
     border: 1px solid white;
+}
+
+.input-container.light-mode .check input:checked {
+    background-color: var(--deepskyblue);
 }
 
 .check input:checked::before{
