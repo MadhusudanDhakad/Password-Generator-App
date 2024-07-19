@@ -15,7 +15,12 @@
     --white: #FFFFFF;
     --vb-yellow: hsl(52, 100%, 62%);
     --btn-color: #011C7A;
-    --red-color: #9C0000;
+    --red-color: #fd0d0d;
+    --lightcyan: 	#E0FFFF;
+    --paleturquoise: #AFEEEE;
+    --deepskyblue: #00BFFF;
+    --skyblue: #87CEEB;
+    --steelblue: #4682B4;
 }
 
 
@@ -31,6 +36,16 @@ body{
     font-family: "Arimo", sans-serif;
 }
 
+body.dark-mode {
+    background-color: var(--very-dark-blue);
+    color: whitesmoke;
+}
+
+body.light-mode {
+    background-color: var(--lightcyan);
+    color: black;
+}
+
 .container{
     width: 90%;
     max-width: 450px;
@@ -44,6 +59,53 @@ body{
     padding: 1.5rem 0.5rem;
     /* box-shadow: white 0px 2px 4px 0px, white 0px 2px 16px 0px; */
     border: 2px solid white;
+}
+
+.container.dark-mode {
+    background-color: var(--dark-blue);
+    color: white;
+    /* transition: all 100ms linear; */
+}
+
+.container.light-mode {
+    background-color: var(--paleturquoise);
+    color: black;
+    box-shadow: black 0px 0px 0px 0px, black 4px 4px 15px -3px;
+}
+
+.container.light-mode .container-heading p {
+    color: black;
+    font-weight: bold;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+.toggle-mode {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+#sun {
+    display: none;
+}
+
+#sun.active {
+    display: flex;
+}
+
+#moon {
+    display: none;
+}
+
+#moon.active {
+    display: flex;
 }
 
 .container-heading{
@@ -78,9 +140,26 @@ body{
     background-color: var(--dark-blue);
     color: var(--white);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.25rem;
     letter-spacing: 1px;
     border-radius: 0.5rem;
+}
+
+
+.display.dark-mode {
+    background-color: var(--very-dark-blue);
+    color: white;
+}
+
+.display.light-mode {
+    background-color: var(--lightcyan);
+    color: black;
+    box-shadow: black 0px 0px 0px 0px, black 4px 4px 15px -3px;
+}
+
+.display.light-mode::placeholder {
+    color: black;
+    opacity: 0.5;
 }
 
 .display::placeholder{
@@ -96,7 +175,14 @@ body{
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: var(--dark-blue);
+    background-color: black;
+}
+
+.cp-img {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
 }
 
 .input-container{
@@ -114,6 +200,21 @@ body{
     margin-bottom: 0.5rem;
 }
 
+.input-container.dark-mode {
+    background-color: var(--very-dark-blue);
+    color: white;
+}
+
+.input-container.light-mode {
+    background-color: var(--lightcyan);
+    color: black;
+    box-shadow: black 0px 0px 0px 0px, black 4px 4px 15px -3px;
+}
+
+.input-container.light-mode .check input {
+    border: 1px solid black;
+}
+
 .length-container{
     width: 100%;
     display: flex;
@@ -126,7 +227,7 @@ body{
 .length-container p:nth-child(1){
     font-weight: bold;
     font-size: 1.5rem;
-    color: var(--white);
+    /* color: var(--white); */
 }
 
 .length-container p:nth-child(2){
@@ -135,9 +236,12 @@ body{
     color: var(--vb-yellow);
 }
 
+.input-container.light-mode .length-container p:nth-child(2) {
+    color: var(--btn-color);
+}
+
 .checkBoxes{
     width: 100%;
-    /* text-align: left; */
     padding: 1.2rem 1.5rem;
     display: flex;
     flex-direction:column;
@@ -154,7 +258,7 @@ body{
 .strength-container p{
     font-weight: bold;
     font-size: 1.5rem;
-    color: var(--white);
+    /* color: var(--white); */
 }
 
 .indicator{
@@ -182,6 +286,10 @@ body{
     text-align: center;
 }
 
+.btn-container.light-mode {
+    background-color: var(--deepskyblue);
+}
+
 .generate-btn{
     all: unset;
     font-size: 0.75rem;
@@ -193,11 +301,19 @@ body{
     text-transform: uppercase;
 }
 
+.btn-container.light-mode .generate-btn {
+    background-color: var(--deepskyblue);
+}
+
+.generate-btn p {
+    color: var(--white);
+}
+
 .btn-container:hover {
     /* box-shadow: rgb(255, 255, 255) 0px 0px 12px 1px; */
     background-color: var(--dark-blue);
     color: var(--white);
-    border: 1px solid white;
+    outline: 1px solid white;
     .generate-btn {
         background-color: var(--dark-blue);
         /* transition: all 100ms linear; */
@@ -240,18 +356,19 @@ body{
 }
 
 .checkBoxes label{
-    color: var(--white);
+    /* color: var(--white); */
     font-size: 1rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     line-height: 1.2;
+    font-weight: 500;
 }
 
 .cp-btn{
     position: absolute;
     font-size: 1.25rem;
     border-radius: 1.2rem;
-    top: -50px;
-    left: -35px;
+    top: -60px;
+    left: -75px;
     background-color: var(--white);
     color: var(--dark-blue);
     padding: 0.3rem 0.5rem;
@@ -260,6 +377,11 @@ body{
     transform: scale(0);
     transform-origin: bottom;
     transition: all 250ms ease-in-out;
+}
+
+.display-container.light-mode .cp-btn {
+    background-color: var(--deepskyblue);
+    color: var(--lightcyan);
 }
 
 .cp-btn.active{
@@ -282,16 +404,28 @@ body{
     /* z-index: -1; */
 }
 
+.input-container.light-mode .slider {
+    background-color: var(--paleturquoise);
+    background-image: linear-gradient(var(--deepskyblue), var(--deepskyblue));
+}
+
 .slider::-webkit-slider-thumb{
     appearance: none;
     position: relative;
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 50%;
-    background-color: var(--vb-yellow);
+    background-color: var(--skyblue);
     cursor: pointer;
     box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
     transition: all 100ms ease-in;
+}
+
+.input-container.light-mode {
+    .slider::-webkit-slider-thumb {
+        box-shadow: 0px 0px 20px 0px rgba(1, 48, 235, 0.5);
+    }
+    
 }
 
 /* .slider{
@@ -329,13 +463,23 @@ body{
     outline: 3px solid var(--white);
 }
 
+.input-container.light-mode .slider:focus {
+    outline: 3px solid var(--steelblue);
+}
+
 .slider::-webkit-slider-thumb:hover {
     outline: 2px solid var(--btn-color);
     background-color: var(--white);
     box-shadow: 0px 0px 25px 5px rgba(255, 255, 255, 0.8);
 }
 
-
+.input-container.light-mode {
+    .slider::-webkit-slider-thumb:hover {
+        outline: 2px solid var(--steelblue);
+        background-color: var(--btn-color);
+        box-shadow: 0px 0px 25px 5px rgba(51, 16, 227, 0.8);
+    }
+}
 
 
 /*slider thumb code for mozila firefox browser*/
@@ -366,9 +510,6 @@ body{
     .check label {
         font-size: 0.9rem;
     }
-
-
-
   }
 
 
