@@ -9,7 +9,7 @@ const lowerCaseCheck = document.querySelector("#lowerCase");
 const numberCheck = document.querySelector("#numbers");
 const symbolCheck = document.querySelector("#symbols");
 const indicator = document.querySelector("[data-indicator]");
-const generateBtn = document.querySelector(".generate-btn");
+const generateBtn = document.querySelector(".btn-container");
 const allCheckBox = document.querySelectorAll("input[type=checkbox]");
 const symbols = '~`!@#$%^&*()_-+={[}]|:;"<,>.?/';
 
@@ -18,9 +18,6 @@ let passwordLength = 10;
 let checkCount = 0;
 handleSlider();
 setIndicator("#ccc"); 
-
-// const inputSlider = document.querySelector("[data-lengthSlider]");
-// const lengthDisplay = document.querySelector("[data-lengthNumber]");
 
 function handleSlider(){
     inputSlider.value = passwordLength;
@@ -31,18 +28,11 @@ function handleSlider(){
     inputSlider.style.backgroundSize = ( (passwordLength - min)*100/(max - min)) + "% 100%"
 }
 
-// const indicator = document.querySelector("[data-indicator]");
-
 function setIndicator(color){
     indicator.style.backgroundColor = color; 
     indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;
 }
 
-// const symbols = '~`!@#$%^&*()_-+={[}]|:;"<,>.?/';
-// const upperCaseCheck = document.querySelector("#upperCase");
-// const lowerCaseCheck = document.querySelector("#lowerCase");
-// const numberCheck = document.querySelector("#numbers");
-// const symbolCheck = document.querySelector("#symbols");
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -151,50 +141,6 @@ copyBtn.addEventListener('click', () => {
 })
 
 
-
-// generateBtn.addEventListener('click', () => {
-//     if(checkCount == 0) return;
-
-//     if(passwordLength < checkCount){
-//         passwordLength = checkCount;
-//         handleSlider();
-//     }
-
-//     // generate new password 
-//     // remove old password 
-//     password = "";
-
-//     let funArray = [];
-
-//     if(upperCaseCheck.checked)
-//         funArray.push(generateUpperCase);
-
-//     if(lowerCaseCheck.checked)
-//         funArray.push(generateLowerCase);
-
-//     if(numberCheck.checked)
-//         funArray.push(generateRndNumber);
-
-//     if(symbolCheck.checked)
-//         funArray.push(generateSymbols);
-
-//     // compulsary addition 
-//     for(let i=0; i<funArray.length; i++){
-//         password += funArray[i]();
-//     }
-
-//     // remaining addition 
-//     for(let i=0; i<passwordLength-funArray.length; i++){
-//         let randomIndex = getRndInteger(0, funArray.length);
-//         password += funArray[randomIndex]();
-//     }
-
-//     password = shufflePassword(Array.from(password));
-//     passwordDisplay.value = password;
-
-//     calcStrength();
-// })
-
 generateBtn.addEventListener('click', () => {
     //none of the checkbox are selected
 
@@ -210,24 +156,6 @@ generateBtn.addEventListener('click', () => {
     console.log("Starting the Journey");
     //remove old password
     password = "";
-
-    //let's put the stuff mentioned by checkboxes
-
-    // if(uppercaseCheck.checked) {
-    //     password += generateUpperCase();
-    // }
-
-    // if(lowercaseCheck.checked) {
-    //     password += generateLowerCase();
-    // }
-
-    // if(numbersCheck.checked) {
-    //     password += generateRandomNumber();
-    // }
-
-    // if(symbolsCheck.checked) {
-    //     password += generateSymbol();
-    // }
 
     let funcArr = [];
 
@@ -264,4 +192,65 @@ generateBtn.addEventListener('click', () => {
     console.log("UI adddition done");
     //calculate strength
     calcStrength();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const body = document.body;
+    const container = document.querySelector(".container");
+    const toggleBtn = document.querySelector(".toggle-btn");
+    const lightMode = document.getElementById("sun");
+    const darkMode = document.getElementById("moon");
+    // const displayScreen = document.querySelector(".display");
+    const inputContainer = document.querySelector(".input-container");
+    const displayContainer = document.querySelector(".display-container");
+
+    darkMode.classList.add("active");
+    body.classList.add("light-mode");
+    container.classList.add("light-mode");
+    passwordDisplay.classList.add("light-mode");
+    inputContainer.classList.add("light-mode");
+    displayContainer.classList.add("light-mode");
+    generateBtn.classList.add("light-mode");
+
+    darkMode.addEventListener("click", () => {
+        if(!body.classList.contains("dark-mode")){
+            darkMode.classList.remove("active");
+            body.classList.remove("light-mode");
+            container.classList.remove("light-mode");
+            passwordDisplay.classList.remove("light-mode");
+            inputContainer.classList.remove("light-mode");
+            displayContainer.classList.remove("light-mode");
+            generateBtn.classList.remove("light-mode");
+            body.classList.add("dark-mode");
+            container.classList.add("dark-mode");
+            passwordDisplay.classList.add("dark-mode");
+            inputContainer.classList.add("dark-mode");
+            displayContainer.classList.add("dark-mode");
+            generateBtn.classList.add("dark-mode");
+            lightMode.classList.add("active");
+        }
+    });
+
+    lightMode.addEventListener("click", () => {
+        if(!body.classList.contains("light-mode")){
+            lightMode.classList.remove("active");
+            body.classList.remove("dark-mode");
+            container.classList.remove("dark-mode");
+            passwordDisplay.classList.remove("dark-mode");
+            inputContainer.classList.remove("dark-mode");
+            displayContainer.classList.remove("dark-mode");
+            generateBtn.classList.remove("dark-mode");
+            body.classList.add("light-mode");
+            container.classList.add("light-mode");
+            passwordDisplay.classList.add("light-mode");
+            inputContainer.classList.add("light-mode");
+            displayContainer.classList.add("light-mode");
+            generateBtn.classList.add("light-mode");
+            darkMode.classList.add("active");
+
+        }
+    });
+
 });
