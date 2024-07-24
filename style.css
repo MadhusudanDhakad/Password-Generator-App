@@ -301,6 +301,19 @@ body.light-mode {
     text-transform: uppercase;
 }
 
+#spin.spinImg {
+    animation: img-spin 1 500ms linear;
+}
+
+@keyframes img-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .btn-container.light-mode .generate-btn {
     background-color: var(--deepskyblue);
 }
