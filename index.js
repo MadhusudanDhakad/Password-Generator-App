@@ -12,6 +12,7 @@ const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector(".btn-container");
 const allCheckBox = document.querySelectorAll("input[type=checkbox]");
 const symbols = '~`!@#$%^&*()_-+={[}]|:;"<,>.?/';
+const spinning = document.getElementById("spin");
 
 let password = "";
 let passwordLength = 10;
@@ -140,10 +141,15 @@ copyBtn.addEventListener('click', () => {
         copyContent();
 })
 
-
+spinning.classList.remove("spinImg");
 generateBtn.addEventListener('click', () => {
+    spinning.classList.add("spinImg");
+    setTimeout(() => {
+        spinning.classList.remove("spinImg");
+        
+    }, 1000);
+    
     //none of the checkbox are selected
-
     if(checkCount == 0) 
         return;
 
